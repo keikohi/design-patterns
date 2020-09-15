@@ -1,8 +1,8 @@
 package prototype;
 
-import java.util.Optional;
+import prototype.framework.Animal;
 
-public class Sheep implements Cloneable {
+public class Sheep implements Cloneable, Animal {
 
 	private String name;
 
@@ -19,13 +19,17 @@ public class Sheep implements Cloneable {
 	}
 
 	@Override
-	public Optional<Sheep> clone() {
-
+	public Animal clone() {
 		try {
-			return Optional.of((Sheep) super.clone());
+			return (Sheep) super.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
-			return Optional.ofNullable(null);
+			throw new RuntimeException();
 		}
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
 	}
 }
