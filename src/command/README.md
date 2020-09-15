@@ -12,6 +12,8 @@
 - postgreSQLでいうWAL
 - ファイルシステムでいうジャーナリング
 
+### クラス図
+![クラス図](https://github.com/keikohi/design-patterns/blob/master/src/command/command.png)
 
 ### 参考
 https://www.oracle.com/webfolder/technetwork/jp/javamagazine/Java_MJ18_CommandDesignPattern.pdf
