@@ -10,6 +10,7 @@ composit: n. 合成
 ### 実装例のイメージ
 
 Sentence(
+
 	Word(
 	  Letter(),
 	  Letter(),
@@ -27,3 +28,6 @@ Sentence(
 	  Letter()...)  
 	...
 )
+
+
+![dia](https://github.com/keikohi/design-patterns/blob/master/src/composit/dia.png)
