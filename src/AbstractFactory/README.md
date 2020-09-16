@@ -7,3 +7,6 @@
 
 依存性逆転の法則DIP(Dependency Inversion Principle)のファクトリ版がAbstract Factoryになる
 こうすると単体テストではMockを化すればいいから楽ちんだよよ！
+
+
+![abstract factory](https://github.com/keikohi/design-patterns/blob/master/src/AbstractFactory/abstractfactory.png)
