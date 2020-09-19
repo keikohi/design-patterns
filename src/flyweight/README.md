@@ -21,3 +21,5 @@ Factoryが複数あるよりも一つのインスタンスに限定してそこ�
 管理されるオブジェクトもシングルトンでも良いのかもしれないと思った
 
 Factory自体もがコンテナ、プールなのでこれがシングルトンなのはまあそうだろう
+
+![dia](https://github.com/keikohi/design-patterns/blob/master/src/flyweight/dia.png)
