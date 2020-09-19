@@ -1,0 +1,7 @@
+## Template Method パターン
+スーパークラスで処理の骨組みを作成してサブクラスで処理を具体化するパターン
+
+骨組みだけ作るとは具体的な処理が未確定なabstract methodをコールするメソッドを作成すること。
+
+### interfaceでのTemplate Method
+interfaceならdefaultで処理の骨組みを作成する
