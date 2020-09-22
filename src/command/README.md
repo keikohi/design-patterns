@@ -1,4 +1,6 @@
 ## Commandパターン
+命令をクラスにする
+命令をクラスにすることで命令の遅延実行、保存、キューイングなど様々なことが可能になる
 
 ### 使い所
 プログラミングの命令や指令(リクエスト)は関数やメソッドを呼び出すことで遂行される。
@@ -11,6 +13,8 @@
 ### 例え
 - postgreSQLでいうWAL
 - ファイルシステムでいうジャーナリング
+
+CommandはEventとも呼ばれる
 
 ### クラス図
 ![クラス図](https://github.com/keikohi/design-patterns/blob/master/src/command/command.png)
