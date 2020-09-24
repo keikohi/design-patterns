@@ -66,7 +66,7 @@ public class DashiChaDuke {
 		private final String rice;
 		private final String dashi;
 		/* 必須項目以外は初期値を入れたりNullを入れたりする */
-    /* オプションの項目はデフォルト値で初期化するのもあり */
+    　　　　　　/* オプションの項目はデフォルト値で初期化するのもあり */
 		private boolean nori = false;
 		private boolean senbei = false;
 		private boolean tsukemono = false;

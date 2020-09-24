@@ -15,15 +15,7 @@ public enum Validation implements ValidationStrategy {
 	isNum {
 		@Override
 		public boolean execute(String s) {
-			if (s == null) {
-				return false;
-			}
-			try {
-				Double.parseDouble(s);
-			} catch (NumberFormatException e) {
-				return false;
-			}
-			return true;
+			return isNum(s);
 		}
 
 	},
@@ -32,9 +24,30 @@ public enum Validation implements ValidationStrategy {
 		public boolean execute(String s) {
 			return s.equals(s.toLowerCase());
 		}
+	},
+	isNum2 {
+
+		@Override
+		public boolean execute(String s) {
+			return isNum(s);
+		}
+
 	};
 
 	public static Optional<ValidationStrategy> of(String s) {
 		return Optional.ofNullable(Validation.valueOf(s));
+	}
+
+	// methodの共通化も可能
+	private static boolean isNum(String s) {
+		if (s == null) {
+			return false;
+		}
+		try {
+			Double.parseDouble(s);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+		return true;
 	}
 }
