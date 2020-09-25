@@ -54,7 +54,8 @@ public class App {
 		new Thread(waitCheckout).start();
 
 		try {
-			Thread.sleep(8000L);
+			Thread.sleep(15000L);
+			System.out.println("Finished Main Thread...");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

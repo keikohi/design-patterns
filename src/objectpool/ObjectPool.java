@@ -20,26 +20,18 @@ public abstract class ObjectPool<T> {
 		}
 	}
 
-	public synchronized Optional<T> checkOut() {
-		if (!avairable.isEmpty()) {
-			T t = getAvairable();
-			System.out.println(String.format("checkout = %s", t));
-			return Optional.of(t);
-		}
-		try {
-			System.out.println("Waiting to checkout objects ....");
-			Thread.sleep(5000L);
-			if (!avairable.isEmpty()) {
-				T t = getAvairable();
-				System.out.println(String.format("checkouted while waiting : %s", t));
-				return Optional.of(t);
+	public Optional<T> checkOut() {
+		Optional<T> optional = getAvairable();
+		return optional.or(() -> {
+			try {
+				Thread.sleep(8000L);
+				return getAvairable();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e.getMessage());
 			}
-			return Optional.empty();
+		});
 
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			return Optional.empty();
-		}
 	}
 
 	@Override
@@ -47,16 +39,20 @@ public abstract class ObjectPool<T> {
 		return String.format("Pool avairable = %d, inUse = %d", avairable.size(), inUse.size());
 	}
 
-	private T getAvairable() {
-		T instance = avairable.iterator().next();
-		avairable.remove(instance);
-		inUse.add(instance);
-		return instance;
+	private synchronized Optional<T> getAvairable() {
+		if (!avairable.isEmpty()) {
+			T instance = avairable.iterator().next();
+			avairable.remove(instance);
+			inUse.add(instance);
+			return Optional.of(instance);
+		}
+		return Optional.empty();
 	}
 
 	public synchronized void checkIn(T instance) {
 		inUse.remove(instance);
 		avairable.add(instance);
+		System.out.println(this);
 	}
 
 }
